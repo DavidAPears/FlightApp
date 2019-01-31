@@ -53,22 +53,22 @@
   height: 0;
   max-height: 0px;
   margin: 0;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
   transition: 0.3s linear;
-  /* position: absolute; */
+  position: absolute;
   z-index: 999;
-  background: #e6e600;
+  background:#cbeaf7;
   border-radius: 20px;
 }
 .dropdown-container .dropdowncontent li {
-  padding: 3px 10px;
+  padding: 10px;
 }
 .dropdown-container .dropdowncontent li:first-child {
-  padding-top: 10px;
+  padding: 10px;
 }
 .dropdown-container .dropdowncontent li:last-child {
-  padding-bottom: 10px;
+  padding: 10px;
 }
 .dropdown-container #drop {
   display: none;

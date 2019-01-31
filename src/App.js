@@ -13,6 +13,9 @@ class App extends Component {
   state = {
     date: null,
     query: '',
+    departuresActive: false,
+    arrivalsActive: false,
+    allFlightsActive: true
     };
 
   constructor(props) {
@@ -21,7 +24,10 @@ class App extends Component {
   this.getArrivals = this.getArrivals.bind(this);
   this.getDataFromDb = this.getDataFromDb.bind(this);
   this.handleInputChange = this.handleInputChange.bind(this);
-  this.searchFlightNo = this.searchFlightNo.bind(this)
+  this.searchFlightNo = this.searchFlightNo.bind(this);
+  this.setDepartureTabActive = this.setDepartureTabActive.bind(this);
+  this.setArrivalsTabActive = this.setArrivalsTabActive.bind(this);
+  this.setAllFlightsTabActive = this.setAllFlightsTabActive.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +36,7 @@ class App extends Component {
 
 // Method that uses backend api to fetch data from our data base
   getDataFromDb() {
+    this.setAllFlightsTabActive()
     var self = this
     fetch("http://localhost:8000/flights")
       .then(data => data.json())
@@ -44,8 +51,33 @@ class App extends Component {
      )
   }
 
+  setDepartureTabActive(){
+    this.setState({
+      departuresActive: true,
+      arrivalsActive: false,
+      allFlightsActive: false
+    })
+  }
+
+  setArrivalsTabActive(){
+    this.setState({
+      departuresActive: false,
+      arrivalsActive: true,
+      allFlightsActive: false
+    })
+  }
+
+  setAllFlightsTabActive(){
+    this.setState({
+      departuresActive: false,
+      arrivalsActive: false,
+      allFlightsActive: true
+    })
+  }
+
 // Method to render all departures:
 getDepartures() {
+  this.setDepartureTabActive()
   var self = this
   fetch("http://localhost:8000/flights/departures")
     .then(data => data.json())
@@ -55,6 +87,7 @@ getDepartures() {
 
 // Method to render all arrivals:
 getArrivals() {
+  this.setArrivalsTabActive()
   var self = this
   fetch("http://localhost:8000/flights/arrivals")
     .then(data => data.json())
@@ -183,9 +216,9 @@ searchFlightNo() {
           <input type="checkbox" id="drop" />
             <label for="drop">Arrivals / Departures</label>
               <ul class="dropdowncontent">
-                <li onClick={this.getArrivals}>Arrivals</li>
-                <li onClick={this.getDepartures}>Departures</li>
-                <li onClick={this.getDataFromDb}>All Flights</li>
+                <li style={{color: this.state.arrivalsActive ? '#299ae1' : 'black'}} onClick={this.getArrivals}>Arrivals</li>
+                <li style={{color: this.state.departuresActive ? '#299ae1' : 'black'}} onClick={this.getDepartures}>Departures</li>
+                <li style={{color: this.state.allFlightsActive ? '#299ae1' : 'black'}} onClick={this.getDataFromDb}>All</li>
               </ul>
         </div>
 
