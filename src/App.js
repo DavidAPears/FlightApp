@@ -41,7 +41,11 @@ class App extends Component {
     fetch("http://localhost:8000/flights")
       .then(data => data.json())
       .then(res => self.setState({ data: res }, function(){
-      }));
+      }))
+      .catch(function(e){
+          console.log("Error:", e);
+        })
+      ;
   };
 
 // Method to render all flights:
@@ -82,7 +86,10 @@ getDepartures() {
   fetch("http://localhost:8000/flights/departures")
     .then(data => data.json())
     .then(res => self.setState({ data: res }, function(){
-    }));
+    })).catch(function(e){
+        console.log("Error:", e);
+      })
+    ;
 };
 
 // Method to render all arrivals:
@@ -92,7 +99,10 @@ getArrivals() {
   fetch("http://localhost:8000/flights/arrivals")
     .then(data => data.json())
     .then(res => self.setState({ data: res }, function(){
-    }));
+    })).catch(function(e){
+        console.log("Error:", e);
+      })
+    ;
 };
 
 // Method to search flight no:
@@ -119,8 +129,11 @@ searchFlightNo() {
   var self = this
   fetch("http://localhost:8000/flights/flight/" + this.state.query)
     .then(data => data.json())
-    .then(res => self.setState({ data: [res] }));
-};
+    .then(res => self.setState({ data: [res] }))
+    .catch(function(e){
+        console.log("Error:", e);
+      })
+    };
 
 
 
@@ -198,7 +211,7 @@ searchFlightNo() {
 
         <form className="searchform cf">
           <input
-            placeholder="Enter Flight No."
+            placeholder="Enter Flight No. (NB: be exact!)"
             onChange={this.handleInputChange}
             type="text"
           />
