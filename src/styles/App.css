@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+.flight-item{
+  font-family: 'Righteous', cursive;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.search {
+  text-align: center;
+}

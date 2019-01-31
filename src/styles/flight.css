@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  border: 5px solid white;
+  border-width: thin;
+  border-radius: 20px;
+  margin: 50px;
+}
+
+.wrapper > * {
+  padding: 1px;
+  flex: 1 100%;
+}
+
+.header {
+  flex-direction: row;
+}
+
+.main {
+  text-align: center;
+  flex-direction: row;
+}
+
+.aside-1 {
+  flex-direction: column;
+  flex: 1;
+  padding: 1px;
+}
+
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 0 0; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; }
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+}
+
+body {
+  padding: 2em;
+}
