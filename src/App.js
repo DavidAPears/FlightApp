@@ -15,7 +15,8 @@ class App extends Component {
     query: '',
     departuresActive: false,
     arrivalsActive: false,
-    allFlightsActive: true
+    allFlightsActive: true,
+    curTime: null
     };
 
   constructor(props) {
@@ -31,8 +32,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getDataFromDb();
+    this.getDataFromDb()
+    setInterval( () => {
+      this.setState({
+        curTime : new Date().toLocaleString()
+      })
+    },1000);
   }
+
+
 
 // Method that uses backend api to fetch data from our data base
   getDataFromDb() {
@@ -189,24 +197,14 @@ searchFlightNo() {
               </span>
           </li>
           <li>
-            <h1>date</h1>
+            <h1>date / time</h1>
               <span class="foldable">
-                <span>Feb</span>
-                <span>4</span>
-                <span>2019</span>
-              </span>
-          </li>
-          <li>
-            <h1>time</h1>
-              <span class="foldable">
-              <span>10</span>
-              <span>17</span>
-              <span>am</span>
+              <span>{this.state.curTime}</span>
+
             </span>
           </li>
         </ul>
         </div>
-
 
 
         <form className="searchform cf">
