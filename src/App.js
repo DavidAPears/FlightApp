@@ -223,7 +223,7 @@ searchFlightNo() {
           <input type="checkbox" id="drop" />
             <label for="drop">Arrivals / Departures</label>
               <ul class="dropdowncontent">
-                <li style={{color: this.state.arrivalsActive ? '#299ae1' : 'black'}} onClick={this.getArrivals}>Arrivals</li>
+                <li style={{color: this.state.arrivalsActive   ? '#299ae1' : 'black'}} onClick={this.getArrivals}>Arrivals</li>
                 <li style={{color: this.state.departuresActive ? '#299ae1' : 'black'}} onClick={this.getDepartures}>Departures</li>
                 <li style={{color: this.state.allFlightsActive ? '#299ae1' : 'black'}} onClick={this.getDataFromDb}>All</li>
               </ul>
