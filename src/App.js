@@ -4,6 +4,7 @@ import './styles/dropdown.css';
 import './styles/App.css';
 import './styles/flight.css';
 import './styles/search.css';
+import './styles/loading.css';
 import plane from './styles/plane.gif';
 import banner from './styles/banner2.png';
 
@@ -237,9 +238,58 @@ searchFlightNo() {
     )}
       else {
         return(
-          <div>
-            <p> Loading... </p>
+          <main>
+            <div className="loading">
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
+            <div className="container">
+              <div className="circle"></div>
+              <div className="circle"></div>
+            </div>
           </div>
+        </main>
         )
       }
     }
